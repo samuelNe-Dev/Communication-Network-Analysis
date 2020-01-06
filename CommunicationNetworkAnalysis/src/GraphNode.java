@@ -13,7 +13,7 @@ public class GraphNode {
 		id = n_id;
 		value = n_value;
 		connected = false;
-		distance = 1000000; //steht f√ºr Unendlich
+		distance = 1000000; //steht f√ºr Unendlich. Wird aber sp‰ter noch ge‰ndert das Unendlichkeit gibt
 	}
 	
 	public String getId() {
@@ -43,4 +43,17 @@ public class GraphNode {
 	public void setDistance(int new_distance) {
 		distance = new_distance;
 	}
+	//public String shortestpath(GraphNode start,GraphNode destination) {
+		//String thepath = null;
+		//start.distance = 0;
+		//start.connected = true;
+		//for(int i =0; i < lengthofNeibours)
+		
+		//return thepath;
+	//}
 }
+
+
+
+
+
