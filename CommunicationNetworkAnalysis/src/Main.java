@@ -8,38 +8,27 @@ import org.xml.sax.SAXException;
 public class Main {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException,FileNotFoundException {
-		
-		/*ReadXML.inputFile();
-		ReadXML.getNodes();
-		ReadXML.getEdges();
-		
-		System.out.println("\n\n----------------------------");
-		System.out.println("Graph Communication Analysis");
-		System.out.println("----------------------------\n");*/
-		
-		Graph.outputAmountofNodesAndEdges();
-		 GraphWeighted graphWeighted = new GraphWeighted(true);
-	        NodeWeighted zero = new NodeWeighted(0, "0");
-	        NodeWeighted one = new NodeWeighted(1, "1");
-	        NodeWeighted two = new NodeWeighted(2, "2");
-	        NodeWeighted three = new NodeWeighted(3, "3");
-	        NodeWeighted four = new NodeWeighted(4, "4");
-	        NodeWeighted five = new NodeWeighted(5, "5");
-	        NodeWeighted six = new NodeWeighted(6, "6");
-
-	        graphWeighted.addEdge(zero, one, 8);
-	        graphWeighted.addEdge(zero, two, 11);
-	        graphWeighted.addEdge(one, three, 3);
-	        graphWeighted.addEdge(one, four, 8);
-	        graphWeighted.addEdge(one, two, 7);
-	        graphWeighted.addEdge(two, four, 9);
-	        graphWeighted.addEdge(three, four, 5);
-	        graphWeighted.addEdge(three, five, 2);
-	        graphWeighted.addEdge(four, six, 6);
-	        graphWeighted.addEdge(five, four, 1);
-	        graphWeighted.addEdge(five, six, 8);
-
-	        graphWeighted.DijkstraShortestPath(zero, five);
+			
+		Graph graph = new Graph(true);
+	    GraphNode zero = new GraphNode(0, "0");
+	    GraphNode one = new GraphNode(1, "1");
+	    GraphNode two = new GraphNode(2, "2");
+	    GraphNode three = new GraphNode(3, "3");
+	    GraphNode four = new GraphNode(4, "4");
+	    GraphNode five = new GraphNode(5, "5");
+	    GraphNode six = new GraphNode(6, "6");
+	    graph.addEdge(zero, one, 8);
+	    graph.addEdge(zero, two, 11);
+	    graph.addEdge(one, three, 3);
+	    graph.addEdge(one, four, 8);
+	    graph.addEdge(one, two, 7);
+	    graph.addEdge(two, four, 9);
+	    graph.addEdge(three, four, 5);
+	    graph.addEdge(three, five, 2);
+	    graph.addEdge(four, six, 6);
+	    graph.addEdge(five, four, 1);
+	    graph.addEdge(five, six, 8);
+	    graph.DijkstraShortestPath(zero, five);
 		
 	}
 

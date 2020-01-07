@@ -1,10 +1,10 @@
 
-public class EdgeWeighted implements Comparable<EdgeWeighted>{
-	NodeWeighted source;
-	NodeWeighted destination;
+public class GraphEdge implements Comparable<GraphEdge>{
+	GraphNode source;
+	GraphNode destination;
 	double weight;
 
-	EdgeWeighted(NodeWeighted s, NodeWeighted d, double w) {
+	GraphEdge(GraphNode s, GraphNode d, double w) {
        
         source = s;
         destination = d;
@@ -16,7 +16,7 @@ public class EdgeWeighted implements Comparable<EdgeWeighted>{
 	    return String.format("(%s -> %s, %f)", source.name, destination.name, weight);
 	}
 
-	public int compareTo(EdgeWeighted otherEdge) {
+	public int compareTo(GraphEdge otherEdge) {
 
 	    if (this.weight > otherEdge.weight) {
 	        return 1;

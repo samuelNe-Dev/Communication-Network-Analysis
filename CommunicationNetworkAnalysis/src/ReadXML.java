@@ -20,8 +20,6 @@ public class ReadXML{
 	
 	public static String filepath = "/Users/samuelnegash/Downloads/medium_graph.graphml";
 	public static ArrayList<GraphNode> Nodes = new ArrayList<GraphNode>();
-	public static int edges_counter = 0;
-
 	
 	public static Document inputFile() throws ParserConfigurationException, SAXException, IOException {
 		//Erstellen eine File Datei für unser Graphml-File
@@ -64,7 +62,7 @@ public class ReadXML{
 				System.out.printf("Node Value: %s%n", value_int);
 				*/
 				//Add every Node to an GraphNode - ArrayList
-				Nodes.add(counter, new GraphNode(n_id, value_int));
+				Nodes.add(counter, new GraphNode(value_int, n_id));
 			}
 		}
 		
@@ -96,20 +94,8 @@ public class ReadXML{
 				System.out.printf("Edge id		: %s%n", e_id);
 				System.out.printf("Edge weight	: %s%n", wgt);
 				*/
-				edges_counter++;
 				
-				for(GraphNode node1 : Nodes) {
-					if(node1.getId() == src) {
-						
-						//Find Target-Object
-						for(GraphNode node2 : Nodes) {
-							if(node2.getId().equals(trg)) {
-								node1.setNeigbours(node2, Integer.valueOf(wgt));
-							}	
-						}
-					
-					}
-				}
+				
 				
 			}
 		}
