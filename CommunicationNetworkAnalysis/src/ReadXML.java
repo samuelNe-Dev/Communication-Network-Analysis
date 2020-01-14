@@ -17,16 +17,14 @@ import org.xml.sax.SAXException;
 
 public class ReadXML{
 	
-	public static String filepath = "/Users/samuelnegash/Downloads/medium_graph.graphml";
 	
 	public static ArrayList<GraphNode> Nodes = new ArrayList<GraphNode>();
 	public static ArrayList<Triplet> Edges = new ArrayList<Triplet>();
-	private static Triplet edge = null;
 	
 	
-	public static Document inputFile() throws ParserConfigurationException, SAXException, IOException {
+	public static Document inputFile(String file) throws ParserConfigurationException, SAXException, IOException {
 		//Erstellen eine File Datei für unser Graphml-File
-		File xmlFile = new File(filepath);
+		File xmlFile = new File(file);
 
 		/*Vom DocumentBuilderFactory bekommen wir den DocumentBuilder. 
 		 *Documentbuilder beinhaltet die API um das DOM Document von der XML-Datei rauszuziehen
@@ -40,9 +38,9 @@ public class ReadXML{
 	}
 	
 	
-	public static void getNodes() throws ParserConfigurationException, SAXException, IOException {
+	public static void getNodes(String file) throws ParserConfigurationException, SAXException, IOException {
 		
-		Document xmlFile = inputFile();
+		Document xmlFile = inputFile(file);
 		NodeList nList = xmlFile.getElementsByTagName("node");
 
 		for (int i = 0; i < nList.getLength(); i++) {
@@ -74,8 +72,8 @@ public class ReadXML{
 		
 	}
 	
-	public static void getEdges() throws ParserConfigurationException, SAXException, IOException {
-		Document xmlFile = inputFile();
+	public static void getEdges(String file) throws ParserConfigurationException, SAXException, IOException {
+		Document xmlFile = inputFile(file);
 		NodeList eList = xmlFile.getElementsByTagName("edge");
 		for (int i = 0; i < eList.getLength(); i++) {
 
@@ -93,19 +91,11 @@ public class ReadXML{
 				Node weight = elem.getElementsByTagName("data").item(1);
 				String wgt = weight.getTextContent();
 				int weight_int = Integer.parseInt(wgt);
-				
-				/*
-				System.out.printf("Edge source	: %s%n", src);
-				System.out.printf("Edge target	: %s%n", trg);
-				System.out.printf("Edge weight	: %s%n\n", wgt);
-				*/
-				
-				edge = new Triplet(src,trg,weight_int);
+			
+				Edges.add(new Triplet(src,trg,weight_int));
 				
 				}
-				Edges.add(edge);
-				
-				
+	
 			}
 						
 		}

@@ -17,9 +17,9 @@ public class Graph {
 	        this.directed = directed;
 	        nodes = new HashSet<>();
 	    }
-	    public static void getNodesAndEdgesFromXML() throws ParserConfigurationException, SAXException, IOException {
-	    	ReadXML.getNodes();
-	    	ReadXML.getEdges();
+	    public static void getNodesAndEdgesFromXML(String file) throws ParserConfigurationException, SAXException, IOException {
+	    	ReadXML.getNodes(file);
+	    	ReadXML.getEdges(file);
 	    }
 	    
 	    public GraphNode intToGraphNode(int n) {

@@ -32,15 +32,17 @@ public class Main {
 	    graph.DijkstraShortestPath(zero, five);
 	    */
 		
-		ReadXML.inputFile();
-		Graph.getNodesAndEdgesFromXML();
-		
+		ReadXML.inputFile(args[0]);
+		Graph.getNodesAndEdgesFromXML(args[0]);
+		System.out.println("Size of Nodes: " + ReadXML.Nodes.size());
+		System.out.println("Size of Edges: " + ReadXML.Edges.size());
 		Graph graph = new Graph(false); // false --> not directed -> undirected graph
 		
 		
 		graph.addAllEdges();
 		
-		graph.DijkstraShortestPath(36, 13);
+		graph.DijkstraShortestPath(9, 30);
+		
 	}
 
 }
