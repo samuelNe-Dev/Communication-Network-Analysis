@@ -10,8 +10,7 @@ import org.w3c.dom.Element;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
@@ -19,7 +18,11 @@ import org.xml.sax.SAXException;
 public class ReadXML{
 	
 	public static String filepath = "/Users/samuelnegash/Downloads/medium_graph.graphml";
+	
 	public static ArrayList<GraphNode> Nodes = new ArrayList<GraphNode>();
+	public static ArrayList<Triplet> Edges = new ArrayList<Triplet>();
+	private static Triplet edge = null;
+	
 	
 	public static Document inputFile() throws ParserConfigurationException, SAXException, IOException {
 		//Erstellen eine File Datei für unser Graphml-File
@@ -41,7 +44,7 @@ public class ReadXML{
 		
 		Document xmlFile = inputFile();
 		NodeList nList = xmlFile.getElementsByTagName("node");
-		int counter = 0;
+
 		for (int i = 0; i < nList.getLength(); i++) {
 
 			Node nNode = nList.item(i);
@@ -57,12 +60,15 @@ public class ReadXML{
 				Node node1 = elem.getElementsByTagName("data").item(0);
 				String value_string = node1.getTextContent();
 				int value_int = Integer.parseInt(value_string);
+				
 				/*
 				System.out.printf("Node id: %s%n", n_id);
 				System.out.printf("Node Value: %s%n", value_int);
 				*/
+				
 				//Add every Node to an GraphNode - ArrayList
-				Nodes.add(counter, new GraphNode(value_int, n_id));
+				Nodes.add(new GraphNode(n_id,value_int));
+			
 			}
 		}
 		
@@ -71,7 +77,6 @@ public class ReadXML{
 	public static void getEdges() throws ParserConfigurationException, SAXException, IOException {
 		Document xmlFile = inputFile();
 		NodeList eList = xmlFile.getElementsByTagName("edge");
-		
 		for (int i = 0; i < eList.getLength(); i++) {
 
 			Node nNode = eList.item(i);
@@ -84,23 +89,30 @@ public class ReadXML{
 
 				String src = elem.getAttribute("source");
 				String trg = elem.getAttribute("target");
-				Node id = elem.getElementsByTagName("data").item(0);
-				String e_id = id.getTextContent();
+				// String e_id = id.getTextContent();
 				Node weight = elem.getElementsByTagName("data").item(1);
 				String wgt = weight.getTextContent();
+				int weight_int = Integer.parseInt(wgt);
+				
 				/*
 				System.out.printf("Edge source	: %s%n", src);
 				System.out.printf("Edge target	: %s%n", trg);
-				System.out.printf("Edge id		: %s%n", e_id);
-				System.out.printf("Edge weight	: %s%n", wgt);
+				System.out.printf("Edge weight	: %s%n\n", wgt);
 				*/
 				
+				edge = new Triplet(src,trg,weight_int);
+				
+				}
+				Edges.add(edge);
 				
 				
 			}
+						
 		}
+	}
+		
 	
 		
-	}
+	
 
-}
+

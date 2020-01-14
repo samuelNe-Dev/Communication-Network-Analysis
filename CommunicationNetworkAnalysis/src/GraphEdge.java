@@ -1,8 +1,8 @@
 
 public class GraphEdge implements Comparable<GraphEdge>{
-	GraphNode source;
-	GraphNode destination;
-	double weight;
+	private GraphNode source;
+	private GraphNode destination;
+	private double weight;
 
 	GraphEdge(GraphNode s, GraphNode d, double w) {
        
@@ -11,7 +11,26 @@ public class GraphEdge implements Comparable<GraphEdge>{
         weight = w;
     }
 
-
+	public void setSource(GraphNode src) {
+		source = src;
+	}
+	public void setDestination(GraphNode dst) {
+		destination = dst;
+	}
+	public void setWeight(double w) {
+		weight = w;
+	}
+	
+	public GraphNode getSource() {
+		return source;
+	}
+	public GraphNode getDestination() {
+		return destination;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	
 	public String toString() {
 	    return String.format("(%s -> %s, %f)", source.name, destination.name, weight);
 	}

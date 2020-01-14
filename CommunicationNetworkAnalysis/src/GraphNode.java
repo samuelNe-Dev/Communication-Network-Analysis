@@ -1,14 +1,14 @@
 import java.util.LinkedList;
 
 public class GraphNode {
-		int n;
 	    String name;
+	    int num;
 	    private boolean visited;
 	    LinkedList<GraphEdge> edges;
 
-	    GraphNode(int n, String name) {
-	        this.n = n;
+	    GraphNode(String name ,int num) {
 	        this.name = name;
+	        this.num = num;
 	        visited = false;
 	        edges = new LinkedList<>();
 	    }

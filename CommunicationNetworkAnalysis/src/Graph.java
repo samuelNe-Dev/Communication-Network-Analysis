@@ -1,18 +1,50 @@
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-public class Graph {
-	 private Set<GraphNode> nodes;
-	    private boolean directed;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.xml.sax.SAXException;
+
+public class Graph {
+	 
+	 	private Set<GraphNode> nodes;
+	    private boolean directed;
+	    	    
 	    Graph(boolean directed) {
 	        this.directed = directed;
 	        nodes = new HashSet<>();
 	    }
-	    public void addEdge(GraphNode source, GraphNode destination, double weight) {
-	       
+	    public static void getNodesAndEdgesFromXML() throws ParserConfigurationException, SAXException, IOException {
+	    	ReadXML.getNodes();
+	    	ReadXML.getEdges();
+	    }
+	    
+	    public GraphNode intToGraphNode(int n) {
+	    	return ReadXML.Nodes.get(n);
+	    }
+	    
+	    public void addAllEdges() {
+	    	for(int i = 0; i < ReadXML.Edges.size(); i++) {
+	    		for(int j = 0; j < ReadXML.Nodes.size(); j++) {
+	    			if(ReadXML.Nodes.get(j).name.equals(ReadXML.Edges.get(i).getSrc())) {
+	    				for(int u = 0; u < ReadXML.Nodes.size(); u++) {
+	    					if(ReadXML.Nodes.get(u).name.equals(ReadXML.Edges.get(i).getTrg())) {
+	    						this.addEdge(j, u, ReadXML.Edges.get(i).getWeight());
+	    					}
+	    				}
+	    			}
+	    		}
+	    	}
+	    }
+	    
+	    
+	    
+	    public void addEdge(int s, int d, double weight) {
+	        GraphNode source = intToGraphNode(s);
+	        GraphNode destination = intToGraphNode(d);
 	        nodes.add(source);
 	        nodes.add(destination);
 	        addEdgeHelper(source, destination, weight);
@@ -21,11 +53,11 @@ public class Graph {
 	        }
 	    }
 
-	    private void addEdgeHelper(GraphNode a, GraphNode b, double weight) {
+	    private  void addEdgeHelper(GraphNode a, GraphNode b, double weight) {
 	       
 	        for (GraphEdge edge : a.edges) {
-	            if (edge.source == a && edge.destination == b) {
-	                edge.weight = weight;
+	            if (edge.getSource() == a && edge.getDestination() == b) {
+	                edge.setWeight(weight);
 	                return;
 	            }
 	        }
@@ -43,7 +75,7 @@ public class Graph {
 	            System.out.print("Node " + node.name + " has edges to: ");
 
 	            for (GraphEdge edge : edges) {
-	                System.out.print(edge.destination.name + "(" + edge.weight + ") ");
+	                System.out.print(edge.getDestination().name + "(" + edge.getWeight() + ") ");
 	            }
 	            System.out.println();
 	        }
@@ -51,7 +83,7 @@ public class Graph {
 	    public boolean hasEdge(GraphNode source, GraphNode destination) {
 	        LinkedList<GraphEdge> edges = source.edges;
 	        for (GraphEdge edge : edges) {
-	            if (edge.destination == destination) {
+	            if (edge.getDestination() == destination) {
 	                return true;
 	            }
 	        }
@@ -62,7 +94,10 @@ public class Graph {
 	            node.unvisit();
 	        }
 	    }
-	    public void DijkstraShortestPath(GraphNode start, GraphNode end) {
+	    public void DijkstraShortestPath(int s, int e) {
+	    	GraphNode start = intToGraphNode(s);
+	    	GraphNode end = intToGraphNode(e);
+
 	        HashMap<GraphNode, GraphNode> changedAt = new HashMap<>();
 	        changedAt.put(start, null);
 	        HashMap<GraphNode, Double> shortestPathMap = new HashMap<>();
@@ -72,8 +107,8 @@ public class Graph {
 	            else shortestPathMap.put(node, Double.POSITIVE_INFINITY);
 	        }
 	        for (GraphEdge edge : start.edges) {
-	            shortestPathMap.put(edge.destination, edge.weight);
-	            changedAt.put(edge.destination, start);
+	            shortestPathMap.put(edge.getDestination(), edge.getWeight());
+	            changedAt.put(edge.getDestination(), start);
 	        }
 
 	        start.visit();
@@ -102,15 +137,15 @@ public class Graph {
 	            }
 	            currentNode.visit();
 	            for (GraphEdge edge : currentNode.edges) {
-	                if (edge.destination.isVisited())
+	                if (edge.getDestination().isVisited())
 	                    continue;
 
 	                if (shortestPathMap.get(currentNode)
-	                   + edge.weight
-	                   < shortestPathMap.get(edge.destination)) {
-	                    shortestPathMap.put(edge.destination,
-	                                       shortestPathMap.get(currentNode) + edge.weight);
-	                    changedAt.put(edge.destination, currentNode);
+	                   + edge.getWeight()
+	                   < shortestPathMap.get(edge.getDestination())) {
+	                    shortestPathMap.put(edge.getDestination(),
+	                                       shortestPathMap.get(currentNode) + edge.getWeight());
+	                    changedAt.put(edge.getDestination(), currentNode);
 	                }
 	            }
 	        }

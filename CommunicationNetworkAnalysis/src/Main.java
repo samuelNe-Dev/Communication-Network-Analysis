@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -8,15 +9,15 @@ import org.xml.sax.SAXException;
 public class Main {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException,FileNotFoundException {
-			
+		/*
 		Graph graph = new Graph(true);
-	    GraphNode zero = new GraphNode(0, "0");
-	    GraphNode one = new GraphNode(1, "1");
-	    GraphNode two = new GraphNode(2, "2");
-	    GraphNode three = new GraphNode(3, "3");
-	    GraphNode four = new GraphNode(4, "4");
-	    GraphNode five = new GraphNode(5, "5");
-	    GraphNode six = new GraphNode(6, "6");
+	    GraphNode zero = new GraphNode("0",0);
+	    GraphNode one = new GraphNode("1",1);
+	    GraphNode two = new GraphNode("2",2);
+	    GraphNode three = new GraphNode("3",3);
+	    GraphNode four = new GraphNode("4",4);
+	    GraphNode five = new GraphNode("5",5);
+	    GraphNode six = new GraphNode("6",6);
 	    graph.addEdge(zero, one, 8);
 	    graph.addEdge(zero, two, 11);
 	    graph.addEdge(one, three, 3);
@@ -29,7 +30,17 @@ public class Main {
 	    graph.addEdge(five, four, 1);
 	    graph.addEdge(five, six, 8);
 	    graph.DijkstraShortestPath(zero, five);
+	    */
 		
+		ReadXML.inputFile();
+		Graph.getNodesAndEdgesFromXML();
+		
+		Graph graph = new Graph(false); // false --> not directed -> undirected graph
+		
+		
+		graph.addAllEdges();
+		
+		graph.DijkstraShortestPath(36, 13);
 	}
 
 }
