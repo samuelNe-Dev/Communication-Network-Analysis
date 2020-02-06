@@ -32,7 +32,7 @@ public class GraphEdge implements Comparable<GraphEdge>{
 	}
 	
 	public String toString() {
-	    return String.format("(%s -> %s, %f)", source.name, destination.name, weight);
+	    return String.format("(%s -> %s, %f)", source.get_name(), destination.get_name(), weight);
 	}
 
 	public int compareTo(GraphEdge otherEdge) {

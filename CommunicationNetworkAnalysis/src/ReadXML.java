@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
@@ -18,11 +18,11 @@ import org.xml.sax.SAXException;
 public class ReadXML{
 	
 	
-	public static ArrayList<GraphNode> Nodes = new ArrayList<GraphNode>();
-	public static ArrayList<Triplet> Edges = new ArrayList<Triplet>();
+	public static List<GraphNode> Nodes = new ArrayList<GraphNode>();
+	public static List<Triplet> Edges = new ArrayList<Triplet>();
 	
 	
-	public static Document inputFile(String file) throws ParserConfigurationException, SAXException, IOException {
+	public static Document inputFile(String file) throws ParserConfigurationException, SAXException, IOException{
 		//Erstellen eine File Datei für unser Graphml-File
 		File xmlFile = new File(file);
 
@@ -30,11 +30,15 @@ public class ReadXML{
 		 *Documentbuilder beinhaltet die API um das DOM Document von der XML-Datei rauszuziehen
 		*/
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = factory.newDocumentBuilder();
+		DocumentBuilder dBuilder;
+		
+		dBuilder = factory.newDocumentBuilder();
 		Document doc = dBuilder.parse(xmlFile);
 
 		doc.getDocumentElement().normalize();
 		return doc;
+	
+		
 	}
 	
 	

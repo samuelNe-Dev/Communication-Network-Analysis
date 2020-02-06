@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> 
+<graph connectivity="true">
+    <node id="n0">
+        <data key="v_id">0</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n1">
+        <data key="v_id">1</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n2">
+        <data key="v_id">2</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n3">
+        <data key="v_id">3</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n4">
+        <data key="v_id">4</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n5">
+        <data key="v_id">5</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n6">
+        <data key="v_id">6</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n7">
+        <data key="v_id">7</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n8">
+        <data key="v_id">8</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n9">
+        <data key="v_id">9</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n10">
+        <data key="v_id">10</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n11">
+        <data key="v_id">11</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n12">
+        <data key="v_id">12</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n13">
+        <data key="v_id">13</data>
+        <data key="betweeness">-</data>
+    </node>
+    <node id="n14">
+        <data key="v_id">14</data>
+        <data key="betweeness">-</data>
+    </node>
+    <edge source="n0" target="n2">
+        <data key="e_id">0</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+    <edge source="n1" target="n3">
+        <data key="e_id">1</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n1" target="n4">
+        <data key="e_id">2</data>
+        <data key="e_weight">9.0</data>
+    </edge>
+    <edge source="n3" target="n5">
+        <data key="e_id">3</data>
+        <data key="e_weight">7.0</data>
+    </edge>
+    <edge source="n4" target="n5">
+        <data key="e_id">4</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+    <edge source="n0" target="n6">
+        <data key="e_id">5</data>
+        <data key="e_weight">7.0</data>
+    </edge>
+    <edge source="n1" target="n6">
+        <data key="e_id">6</data>
+        <data key="e_weight">9.0</data>
+    </edge>
+    <edge source="n5" target="n6">
+        <data key="e_id">7</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n0" target="n7">
+        <data key="e_id">8</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n6" target="n7">
+        <data key="e_id">9</data>
+        <data key="e_weight">4.0</data>
+    </edge>
+    <edge source="n0" target="n8">
+        <data key="e_id">10</data>
+        <data key="e_weight">9.0</data>
+    </edge>
+    <edge source="n1" target="n8">
+        <data key="e_id">11</data>
+        <data key="e_weight">5.0</data>
+    </edge>
+    <edge source="n3" target="n8">
+        <data key="e_id">12</data>
+        <data key="e_weight">1.0</data>
+    </edge>
+    <edge source="n5" target="n8">
+        <data key="e_id">13</data>
+        <data key="e_weight">1.0</data>
+    </edge>
+    <edge source="n0" target="n9">
+        <data key="e_id">14</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n3" target="n9">
+        <data key="e_id">15</data>
+        <data key="e_weight">4.0</data>
+    </edge>
+    <edge source="n1" target="n10">
+        <data key="e_id">16</data>
+        <data key="e_weight">9.0</data>
+    </edge>
+    <edge source="n3" target="n10">
+        <data key="e_id">17</data>
+        <data key="e_weight">1.0</data>
+    </edge>
+    <edge source="n6" target="n10">
+        <data key="e_id">18</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n7" target="n10">
+        <data key="e_id">19</data>
+        <data key="e_weight">3.0</data>
+    </edge>
+    <edge source="n3" target="n11">
+        <data key="e_id">20</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+    <edge source="n10" target="n11">
+        <data key="e_id">21</data>
+        <data key="e_weight">4.0</data>
+    </edge>
+    <edge source="n9" target="n13">
+        <data key="e_id">22</data>
+        <data key="e_weight">7.0</data>
+    </edge>
+    <edge source="n6" target="n14">
+        <data key="e_id">23</data>
+        <data key="e_weight">2.0</data>
+    </edge>
+    <edge source="n9" target="n14">
+        <data key="e_id">24</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+    <edge source="n11" target="n14">
+        <data key="e_id">25</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+    <edge source="n12" target="n14">
+        <data key="e_id">26</data>
+        <data key="e_weight">6.0</data>
+    </edge>
+    <edge source="n13" target="n14">
+        <data key="e_id">27</data>
+        <data key="e_weight">8.0</data>
+    </edge>
+</graph>
